@@ -24,11 +24,6 @@ namespace PersonalLeagueProgram
         public MainWindow()
         {
             InitializeComponent();
-
-
-            var controller = new APIController("RGAPI-db33e87e-04c6-4256-ab0e-f51144adaeb7", "NA1");
-            var summoner = controller.GetSummonerByName("awoowatsdis");
-            var masteries = controller.GetChampionMasteries();
         }
     }
 }

@@ -11,11 +11,11 @@ namespace PersonalLeagueProgram.API
 
         }
 
-        public Riot_Models.SummonerDTO GetSummonerByName(string summonerName)
+        public RiotModels.SummonerDTO GetSummonerByName(string summonerName)
         {
             string path = $"summoner/v4/summoners/by-name/{summonerName}";
 
-            return SendRequest<Riot_Models.SummonerDTO>(path);
+            return SendRequest<RiotModels.SummonerDTO>(path);
         }
     }
 }

@@ -4,9 +4,49 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:PersonalLeagueProgram"
+        xmlns:converters="clr-namespace:PersonalLeagueProgram.Converters"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
+    <Window.Resources>
+        <converters:BoolToCollapsedConverter x:Key="BoolToCollapsedConverter"/>
+        <converters:InvertedBoolToCollapsedConverter x:Key="InvBoolToCollapsedConverter"/>
+    </Window.Resources>
     <Grid>
-
+        <Grid Visibility="{Binding LoggedIn, Converter={StaticResource InvBoolToCollapsedConverter}}">
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <TextBox Text="{Binding LoginParameters.Key}"/>
+            <ComboBox Grid.Row="1" SelectedValuePath="Content" SelectedValue="{Binding LoginParameters.Region}">
+                <ComboBoxItem>na1</ComboBoxItem>
+            </ComboBox>
+            <TextBox Grid.Row="2" Text="{Binding LoginParameters.Name}"/>
+            <Button Content="Login" Grid.Row="3" Command="{Binding LoginCommand}" CommandParameter="{Binding LoginParameters}"/>
+        </Grid>
+        <Grid Visibility="{Binding LoggedIn, Converter={StaticResource BoolToCollapsedConverter}}">
+            <ScrollViewer>
+                <ItemsControl ItemsSource="{Binding Champions}">
+                    <ItemsControl.ItemTemplate>
+                        <DataTemplate>
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="auto"/>
+                                    <ColumnDefinition Width="1*"/>
+                                </Grid.ColumnDefinitions>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition/>
+                                    <RowDefinition/>
+                                </Grid.RowDefinitions>
+                                <Label Content="{Binding FullName}"/>
+                                <Image Source="{Binding Image}" HorizontalAlignment="Left" Width="30" Grid.Row="1" Grid.ColumnSpan="2"/>
+                            </Grid>
+                        </DataTemplate>
+                    </ItemsControl.ItemTemplate>
+                </ItemsControl>
+            </ScrollViewer>
+        </Grid>
     </Grid>
 </Window>

@@ -10,11 +10,11 @@ namespace PersonalLeagueProgram.API
         {
         }
 
-        public List<Riot_Models.ChampionMasteryDto> GetChampionMasteryByID(string id)
+        public List<RiotModels.ChampionMasteryDto> GetChampionMasteryByID(string id)
         {
             string path = $"champion-mastery/v4/champion-masteries/by-summoner/{id}";
 
-            return SendRequest<List<Riot_Models.ChampionMasteryDto>>(path);
+            return SendRequest<List<RiotModels.ChampionMasteryDto>>(path);
         }
     }
 }

@@ -15,7 +15,7 @@ namespace PersonalLeagueProgram
             Region = region;
         }
 
-        public Riot_Models.SummonerDTO GetSummonerByName(string summonerName)
+        public RiotModels.SummonerDTO GetSummonerByName(string summonerName)
         {
             var summoner_V4 = new API.Summoner_V4(Key, Region);
             var summoner = summoner_V4.GetSummonerByName(summonerName);
@@ -25,7 +25,7 @@ namespace PersonalLeagueProgram
             return summoner;
         }
 
-        public List<Riot_Models.ChampionMasteryDto> GetChampionMasteries()
+        public List<RiotModels.ChampionMasteryDto> GetChampionMasteries()
         {
             var champion_Mastery_V4 = new API.Champion_Mastery_V4(Key, Region);
 
