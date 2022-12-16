@@ -6,16 +6,18 @@ namespace PersonalLeagueProgram
 {
     public class Champion
     {
-        public Champion(string name, string title, string image)
+        public Champion()
         {
-            Name = name;
-            Title = title;
-            Image = image;
         }
 
         public string Name { get; set; }
         public string Title { get; set; }
-        public string FullName { get { return $"{Name}: {Title}"; } }
+
         public string Image { get; set; }
+        public string Mastery { get; set; }
+
+
+        public string FullName { get { return $"{Name}: {Title}"; } }
+
     }
 }

@@ -39,9 +39,11 @@
                                 <Grid.RowDefinitions>
                                     <RowDefinition/>
                                     <RowDefinition/>
+                                    <RowDefinition/>
                                 </Grid.RowDefinitions>
                                 <Label Content="{Binding FullName}"/>
-                                <Image Source="{Binding Image}" HorizontalAlignment="Left" Width="30" Grid.Row="1" Grid.ColumnSpan="2"/>
+                                <Label Content="{Binding Mastery}" ContentStringFormat="Mastery Level : {0}" Grid.Row="1"/>
+                                <Image Source="{Binding Image}" HorizontalAlignment="Left" Width="30" Grid.Row="2" Grid.ColumnSpan="2"/>
                             </Grid>
                         </DataTemplate>
                     </ItemsControl.ItemTemplate>

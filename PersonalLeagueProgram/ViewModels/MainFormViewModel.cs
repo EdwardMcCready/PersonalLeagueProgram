@@ -50,9 +50,12 @@ namespace PersonalLeagueProgram.ViewModels
                         var championInfo = champion.Value;
 
                         ChampionsById.Add(champion.Value.Key,
-                            new Champion(championInfo.Name,
-                                         championInfo.Title,
-                                         ImagePath + championInfo.Image.Full));
+                            new Champion()
+                            { 
+                                Name = championInfo.Name,
+                                Title = championInfo.Title,
+                                Image = ImagePath + championInfo.Image.Full
+                            });
                     }
                 }
             }
@@ -74,7 +77,10 @@ namespace PersonalLeagueProgram.ViewModels
             foreach (var mastery in masteries)
             {
                 if (ChampionsById.TryGetValue(mastery.ChampionId.ToString(), out var champion))
-                     Champions.Add(champion);
+                {
+                    champion.Mastery = mastery.ChampionLevel.ToString();
+                    Champions.Add(champion);
+                }
             }
         }
 
