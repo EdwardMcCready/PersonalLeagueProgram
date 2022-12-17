@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace PersonalLeagueProgram
+namespace PersonalLeagueProgram.ChampionModels
 {
     public class Champion
     {
@@ -16,6 +16,7 @@ namespace PersonalLeagueProgram
         public string Image { get; set; }
         public string Mastery { get; set; }
 
+        public int MasteryNumber { get; set; }
 
         public string FullName { get { return $"{Name}: {Title}"; } }
 

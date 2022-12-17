@@ -12,7 +12,7 @@
         <converters:InvertedBoolToCollapsedConverter x:Key="InvBoolToCollapsedConverter"/>
     </Window.Resources>
     <Grid>
-        <Grid Visibility="{Binding LoggedIn, Converter={StaticResource InvBoolToCollapsedConverter}}">
+        <Grid Visibility="{Binding LoginViewModel.LoggedIn, Converter={StaticResource InvBoolToCollapsedConverter}}">
             <Grid.RowDefinitions>
                 <RowDefinition/>
                 <RowDefinition/>
@@ -24,11 +24,17 @@
                 <ComboBoxItem>na1</ComboBoxItem>
             </ComboBox>
             <TextBox Grid.Row="2" Text="{Binding LoginParameters.Name}"/>
-            <Button Content="Login" Grid.Row="3" Command="{Binding LoginCommand}" CommandParameter="{Binding LoginParameters}"/>
+            <Button Content="Login" Grid.Row="3" Command="{Binding LoginCommand}"/>
         </Grid>
-        <Grid Visibility="{Binding LoggedIn, Converter={StaticResource BoolToCollapsedConverter}}">
-            <ScrollViewer>
-                <ItemsControl ItemsSource="{Binding Champions}">
+        <Grid Visibility="{Binding LoginViewModel.LoggedIn, Converter={StaticResource BoolToCollapsedConverter}}">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="9*"/>
+            </Grid.RowDefinitions>
+            <Button Content="Filter M7" Width="60" Command="{Binding FilterCommand}"/>
+            <ScrollViewer Grid.Row="1">
+                <ItemsControl ItemsSource="{Binding ChampionViewModel.Champions}">
+ 
                     <ItemsControl.ItemTemplate>
                         <DataTemplate>
                             <Grid>

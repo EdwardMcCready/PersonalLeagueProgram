@@ -19,10 +19,11 @@ namespace PersonalLeagueProgram
         {
             base.OnStartup(e);
 
-            var viewModel = new ViewModels.MainFormViewModel();
             var mainwindow = new MainWindow();
-            mainwindow.DataContext = viewModel;
-            mainwindow.Show();
+            mainwindow.DataContext = new ViewModels.MasterViewModel();
+
+            mainwindow.ShowDialog();
+
         }
     }
 }
